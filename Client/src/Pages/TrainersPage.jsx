@@ -18,49 +18,49 @@ const TrainersPage = () => {
                 <div className="Tboxes">
                     <h1 className="Thead">Cooper, <br />Justin</h1>
                     <img className="Timages" src={JCoop} alt="Cooper, Justin" />
-                    <Link to="/JCoop"><button className="Viewprofile">View Profile</button></Link>
+                    <Link to="/personaltrainers/JustinCooper"><button className="Viewprofile">View Profile</button></Link>
                 </div>
 
                 <div className="Tboxes">
                     <h1 className="Thead">Loza,<br />Joe</h1>
                     <img className="Timages" src={Loza} alt="Loza, Joe" />
-                    <Link to="/Lazo"><button className="Viewprofile">View Profile</button></Link>
+                    <Link to="/personaltrainers/joeloza"><button className="Viewprofile">View Profile</button></Link>
                 </div>
 
                 <div className="Tboxes">
                     <h1 className="Thead">Maselka,<br />Kevin</h1>
                     <img className="Timages" src={Maselka} alt="Maselka, Kevin" />
-                    <Link to="/maselka"><button className="Viewprofile">View Profile</button></Link>
+                    <Link to="/personaltrainers/kevinmaselka"><button className="Viewprofile">View Profile</button></Link>
                 </div>
 
                 <div className="Tboxes">
                     <h1 className="Thead">Medrano,<br />Joe</h1>
                     <img className="Timages" src={Medrano} alt="Medrano, Joe" />
-                    <Link to="/Medrano"><button className="Viewprofile">View Profile</button></Link>
+                    <Link to="/personaltrainers/JoeMedrano"><button className="Viewprofile">View Profile</button></Link>
                 </div>
 
                 <div className="Tboxes">
                     <h1 className="Thead">Mitcheltree,<br />Gene</h1>
                     <img className="Timages" src={Gene} alt="Mitcheltree, Gene" />
-                    <Link to="/Gene"><button className="Viewprofile">View Profile</button></Link>
+                    <Link to="/personaltrainers/GeneMitcheltree"><button className="Viewprofile">View Profile</button></Link>
                 </div>
 
                 <div className="Tboxes">
                     <h1 className="Thead">Shulman,<br />Rich</h1>
                     <img className="Timages" src={Shulman} alt="Shulman, Rich" />
-                    <Link to="/RichShulman"><button className="Viewprofile">View Profile</button></Link>
+                    <Link to="/PersonalTrainers/RichShulman"><button className="Viewprofile">View Profile</button></Link>
                 </div>
 
                 <div className="Tboxes">
                     <h1 className="Thead">Watkins Jr,<br />Robert</h1>
                     <img className="Timages" src={Watkins} alt="Watkins Jr, Robert" />
-                    <Link to="/Watkins"><button className="Viewprofile">View Profile</button></Link>
+                    <Link to="/personaltrainers/RobertWatkins"><button className="Viewprofile">View Profile</button></Link>
                 </div>
 
                 <div className="Tboxes">
                     <h1 className="Thead">White,<br />Kevin</h1>
                     <img className="Timages" src={KevinWhite} alt="White, Kevin" />
-                    <Link to="/KevinWhite"><button className="Viewprofile">View Profile</button></Link>
+                    <Link to="/personaltrainers/KevinWhite"><button className="Viewprofile">View Profile</button></Link>
                 </div>
             </div>
         </>
