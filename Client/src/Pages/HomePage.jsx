@@ -1,30 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {
-    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        // Delay the transition a bit after the component mounts
-        const timer = setTimeout(() => {
-            setIsVisible(true);
-        }, 100); // Adjust the delay as needed
+        // Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        }, { threshold: 0.1 }); // Adjust threshold as needed
 
-        return () => clearTimeout(timer);
+        const hiddenElements = document.querySelectorAll('.hidden', '.hidden1', '.hidden2');
+        hiddenElements.forEach(el => observer.observe(el));
+
+        return () => {
+            // Cleanup observer when component unmounts
+            hiddenElements.forEach(el => observer.unobserve(el));
+        };
     }, []);
-
-    // Function to return the appropriate class name
-    const getClassName = (baseClass, hiddenClass) => {
-        return isVisible ? `${baseClass} show` : `${baseClass} ${hiddenClass}`;
-    };
 
     return (
         <>
-            <section className={getClassName("special", "hidden")}>
+            <section className="special">
                 <h1 className="Homeoftxt">Home of the Independent Trainer</h1>
             </section>
 
-            <div className={getClassName("homeinfodiv", "hidden")}>
+            <div className="homeinfodiv">
                 <section>
                     <p className="homeinfo">Over 20,0000 square feet of facility</p>
                     <p className="homeinfo">Cardiovascular, Strength Equipment, Large Functional/Sport Specific Training, 1/2 Floor Indoor Basketball Court, Powerlifting/ Olympic Lifting Platform, Stretching Stations, and More...</p>
@@ -34,28 +40,35 @@ const HomePage = () => {
                 </section>
             </div>
 
-            <div className={getClassName("homeinfodiv2", "hidden2")}>
+            <div className="homeinfodiv2">
                 <section>
                     <p className="homeinfo">For over 35+ years, Team Eckenrode has been a hub for fitness entrepreneurs that lead the Training industry</p>
-                    <Link to="#">
+                    <Link to="/personaltrainers">
                         <button className="viewtrainers">View Personal Trainers</button>
                     </Link>
                 </section>
             </div>
 
-            <div className={getClassName("homeinfodiv", "hidden")}>
+            <div className="homeinfodiv">
                 <section>
                     <p className="homeinfo">Experience the feel of family owned small business and become a member today</p>
-                    <Link to="#">
+                    <Link to="/membership">
                         <button className="viewmembershipsbutton">View Memberships</button>
                     </Link>
                 </section>
             </div>
 
-            <div className={getClassName("homeinfodiv2", "hidden2")}>
+            <div className="homeinfodiv2 hidden">
                 <section>
                     <div>
-                        <iframe src="https://www.google.com/maps/embed?...2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" />
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3098.6615451378793!2d-77.10582932389569!3d39.04583567169283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7cc2793f448c9%3A0x9f0be7f94f9f8860!2sTeam%20Eckenrode%20Gym%20%26%20Fitness!5e0!3m2!1sen!2sus!4v1702602754358!5m2!1sen!2sus"
+                            width="600"
+                            height="450"
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
 
                     <div className="hrsbox">

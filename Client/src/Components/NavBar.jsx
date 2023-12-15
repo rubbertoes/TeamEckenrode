@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../assets/Images/Logo.png'; // Adjust the path to where your image is stored
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import Logo from '../assets/Images/Logo.png'; // Adjust the path to your logo image
 
-const NavBar = () => {
+function Navbar() {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const handleToggleClick = () => {
+        setDropdownOpen(!dropdownOpen);
+    };
+
     return (
         <header>
             <div className="banner">
@@ -18,25 +26,37 @@ const NavBar = () => {
 
             <hr className="hrtop" />
 
-            <nav role="navigation">
-                <div className="navbar">
-                    <ul className="links">
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/membership">Membership</Link></li>
-                        <li><Link to="/personaltrainers">Independent Personal Trainers</Link></li>
-                        <li><Link to="/about">About/Contact</Link></li>
-                    </ul>
-                    <Link to="/membership" className="action_btn">Join Now</Link>
-
-                    {/* ... rest of your navbar structure ... */}
+            <nav className="navbar">
+                <div className="logo">
                 </div>
 
-                {/* ... dropdown menu ... */}
-            </nav>
+                <ul className={`links ${dropdownOpen ? 'open' : ''}`}>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/membership">Membership</Link></li>
+                    <li><Link to="/personaltrainers">Independent Personal Trainers</Link></li>
+                    <li><Link to="/about">About/Contact</Link></li>
+                </ul>
 
+                <button onClick={handleToggleClick} className="toggle_btn">
+                    <FontAwesomeIcon icon={faBars} />
+                </button>
+
+                <div className={`dropdown_menu ${dropdownOpen ? 'open' : ''}`}>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/membership">Membership</Link></li>
+                    <li><Link to="/personaltrainers">Independent Personal Trainers</Link></li>
+                    <li><Link to="/about">About/Contact</Link></li>
+                    <div className="action_btn">
+                        <Link to="/membership">Join Now</Link>
+                    </div>
+                </div>
+
+                <Link to="/membership" className="action_btn">Join Now</Link>
+            </nav>
             <hr className="hrtop" />
         </header>
+
     );
 }
 
-export default NavBar;
+export default Navbar;
