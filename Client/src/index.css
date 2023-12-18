@@ -154,6 +154,20 @@ header {
   justify-content: center;
 }
 
+/* Styling for the toggle menu button */
+.toggle_btn {
+  border: none;
+  background-color: transparent;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 @media only screen and (min-width: 850px) {
   .toggle_btn {
     display: none;
@@ -441,21 +455,14 @@ iframe {
   transition: all 2s;
 }
 
-.hidden1 {
-  opacity: 0;
-  width: 100%;
-  height: auto;
-  filter: blur(5px);
-  transform: translateX(-100%);
-  transition: opacity 0.5s, transform 0.5s, filter 0.5s;
-}
 
 .hidden2 {
   opacity: 0;
   width: 100%;
   height: auto;
-  filter: blur(2px);
-  transition: opacity 3.5s, filter 3.5s;
+  filter: blur(5px);
+  transform: translateX(100%);
+  transition: all .75s;
 }
 
 .show {

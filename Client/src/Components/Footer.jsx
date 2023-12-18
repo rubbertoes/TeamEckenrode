@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FooterLogo from '../assets/Images/Logo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons';
+
+
 
 const Footer = () => {
     return (
@@ -20,13 +24,13 @@ const Footer = () => {
                 </p>
                 <div className="footerbox">
                     <a href="https://www.instagram.com/team.eckenrode/?hl=en" target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-instagram fa-2xl"></i>
+                        <FontAwesomeIcon icon={faInstagram} size="2x" />
                     </a>
                     <a href="https://www.facebook.com/teameckenrodegymandfitness/" target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-facebook fa-2xl"></i>
+                        <FontAwesomeIcon icon={faFacebook} size="2x" />
                     </a>
                     <a href="https://www.youtube.com/@Mission_TeamE" target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-youtube fa-2xl"></i>
+                        <FontAwesomeIcon icon={faYoutube} size="2x" />
                     </a>
                 </div>
             </div>

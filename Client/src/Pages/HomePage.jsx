@@ -1,28 +1,8 @@
-import React, { useEffect } from 'react';
+// Desc: This is the home page for the website. It contains information about the gym and links to other pages.
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {
-
-    useEffect(() => {
-        // Intersection Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                } else {
-                    entry.target.classList.remove('show');
-                }
-            });
-        }, { threshold: 0.1 }); // Adjust threshold as needed
-
-        const hiddenElements = document.querySelectorAll('.hidden', '.hidden1', '.hidden2');
-        hiddenElements.forEach(el => observer.observe(el));
-
-        return () => {
-            // Cleanup observer when component unmounts
-            hiddenElements.forEach(el => observer.unobserve(el));
-        };
-    }, []);
 
     return (
         <>
@@ -58,7 +38,7 @@ const HomePage = () => {
                 </section>
             </div>
 
-            <div className="homeinfodiv2 hidden">
+            <div className="homeinfodiv2">
                 <section>
                     <div>
                         <iframe

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar.jsx';
 import HomePage from './Pages/HomePage.jsx';
 import MembershipPage from './Pages/MembershipPage.jsx';
@@ -15,7 +15,6 @@ import RichShulmanPage from './Pages/SubPages/Shulman.jsx';
 import KevinWhitePage from './Pages/SubPages/White.jsx';
 import RobertWatkinsPage from './Pages/SubPages/Watkins.jsx';
 import Footer from './Components/Footer.jsx';
-
 
 function App() {
   return (
@@ -36,10 +35,11 @@ function App() {
         <Route path="/PersonalTrainers/KevinWhite" element={<KevinWhitePage />} />
         <Route path="/PersonalTrainers/RobertWatkins" element={<RobertWatkinsPage />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
-
       </Routes>
       <Footer />
     </>
   );
 }
+
 export default App;
+

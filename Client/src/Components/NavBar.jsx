@@ -11,6 +11,11 @@ function Navbar() {
         setDropdownOpen(!dropdownOpen);
     };
 
+    // Function to close the dropdown
+    const handleCloseDropdown = () => {
+        setDropdownOpen(false);
+    };
+
     return (
         <header>
             <div className="banner">
@@ -42,12 +47,12 @@ function Navbar() {
                 </button>
 
                 <div className={`dropdown_menu ${dropdownOpen ? 'open' : ''}`}>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/membership">Membership</Link></li>
-                    <li><Link to="/personaltrainers">Independent Personal Trainers</Link></li>
-                    <li><Link to="/about">About/Contact</Link></li>
+                    <li><Link to="/" onClick={handleCloseDropdown}>Home</Link></li>
+                    <li><Link to="/membership" onClick={handleCloseDropdown}>Membership</Link></li>
+                    <li><Link to="/personaltrainers" onClick={handleCloseDropdown}>Independent Personal Trainers</Link></li>
+                    <li><Link to="/about" onClick={handleCloseDropdown}>About/Contact</Link></li>
                     <div className="action_btn">
-                        <Link to="/membership">Join Now</Link>
+                        <Link to="/membership" onClick={handleCloseDropdown}>Join Now</Link>
                     </div>
                 </div>
 
@@ -55,7 +60,6 @@ function Navbar() {
             </nav>
             <hr className="hrtop" />
         </header>
-
     );
 }
 
