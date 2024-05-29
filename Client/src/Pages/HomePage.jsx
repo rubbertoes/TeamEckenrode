@@ -1,13 +1,66 @@
 // Desc: This is the home page for the website. It contains information about the gym and links to other pages.
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {
 
+    useEffect(() => {
+
+        // Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                console.log(entry)
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.75 });
+
+        const hiddenElements = document.querySelectorAll('.hidden, .hidden2');
+        hiddenElements.forEach((el) => observer.observe(el));
+
+        // Typing effect
+        const text = document.querySelector('.herop');
+
+        if (!text) return;
+
+        const strText = text.textContent;
+        const splitText = strText.split("");
+        text.textContent = "";
+
+        for (let i = 0; i < splitText.length; i++) {
+            text.innerHTML += "<span>" + splitText[i] + "</span>";
+        }
+
+        let char = 0;
+        const timer = setInterval(onTick, 10);
+
+        function onTick() {
+            const span = text.querySelectorAll('span')[char];
+            span.classList.add('fade');
+            char++;
+            if (char === splitText.length) {
+                complete();
+            }
+        }
+
+        function complete() {
+            clearInterval(timer);
+        }
+
+        return () => {
+            clearInterval(timer);
+            hiddenElements.forEach((el) => observer.unobserve(el));
+            observer.disconnect();
+        };
+
+    }, []);
+
+
     return (
         <>
             <section className="special">
-                <h1 className="Homeoftxt">Home of the Independent Trainer</h1>
+                <h1 className="Homeoftxt herop">Home of the Independent Trainer</h1>
             </section>
 
             <div className="homeinfodiv">
@@ -59,8 +112,8 @@ const HomePage = () => {
                             Wednesday 5:30am-8pm<br />
                             Thursday 5:30am-8pm<br />
                             Friday 5:30am-8pm<br />
-                            Saturday 7am-1pm<br />
-                            Sunday 10am-2pm<br />
+                            Saturday 7am-3pm<br />
+                            Sunday 9am-2pm<br />
                         </p>
                     </div>
 
