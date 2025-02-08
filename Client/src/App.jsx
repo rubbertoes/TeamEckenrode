@@ -15,10 +15,14 @@ import RichShulmanPage from './Pages/SubPages/Shulman.jsx';
 import KevinWhitePage from './Pages/SubPages/White.jsx';
 import RobertWatkinsPage from './Pages/SubPages/Watkins.jsx';
 import Footer from './Components/Footer.jsx';
+import PrivateRoute from './Components/PrivateRoute.jsx';
+import Admin from './Admin/Admin.jsx';
+import Login from './Components/Login.jsx';
+import { AuthProvider } from './Components/AuthContext.jsx';
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -35,9 +39,13 @@ function App() {
         <Route path="/PersonalTrainers/KevinWhite" element={<KevinWhitePage />} />
         <Route path="/PersonalTrainers/RobertWatkins" element={<RobertWatkinsPage />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
+
+        {/* Private Routes */}
+        <Route path="/adminhome" element={<PrivateRoute element={Admin} />} />
+        <Route path="/admin" element={<Login />} />
       </Routes>
       <Footer />
-    </>
+    </AuthProvider>
   );
 }
 
