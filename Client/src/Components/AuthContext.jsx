@@ -6,7 +6,7 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const login = (password) => {
-    if (password === 'eric') { // Replace with your actual password logic
+    if (password === import.meta.env.VITE_ADMIN_PASSWORD_SECRET) { // Replace with your actual password logic
       setIsAuthenticated(true);
     }
   };
