@@ -17,7 +17,7 @@ const AboutContactPage = () => {
 
             <div className="about_footer">
                 <p>
-                    <strong> Front Desk Cell: </strong>
+                    <strong> Front Desk Phone: </strong>
                     <p className="phonenumber"> (301)-230-9393 </p>
                     <br />
                     <strong>Address:</strong>

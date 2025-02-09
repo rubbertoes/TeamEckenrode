@@ -837,3 +837,14 @@ button:hover {
 .footerlogo:hover {
   opacity: .6;
 }
+
+
+/*Admin Page*/
+.adminContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 40vh; /* Full viewport height */
+  text-align: center; /* Optional: centers text within the flex item */
+}
