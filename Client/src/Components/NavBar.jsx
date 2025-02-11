@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../assets/Images/Logo.png'; // Adjust the path to your logo image
 import { useAlert } from './AlertContext.jsx';
+import AlertModal from './AlertModal.jsx';
 
 function Navbar() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -33,6 +34,8 @@ function Navbar() {
     }, [alert]);
 
     return (
+        <>
+        <AlertModal /> 
         <header className={alert.visible ? 'with-alert' : ''}>
             {alert.visible && (
                 <div className="alert-banner" ref={alertRef}>
@@ -81,6 +84,7 @@ function Navbar() {
             </nav>
             <hr className="hrtop" />
         </header>
+        </>
     );
 }
 
