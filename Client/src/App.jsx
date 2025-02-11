@@ -19,10 +19,12 @@ import PrivateRoute from './Components/PrivateRoute.jsx';
 import Admin from './Admin/Admin.jsx';
 import Login from './Components/Login.jsx';
 import { AuthProvider } from './Components/AuthContext.jsx';
+import { AlertProvider } from './Components/AlertContext.jsx';
 
 function App() {
   return (
     <AuthProvider>
+      <AlertProvider>
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -45,6 +47,7 @@ function App() {
         <Route path="/admin" element={<Login />} />
       </Routes>
       <Footer />
+      </AlertProvider>
     </AuthProvider>
   );
 }

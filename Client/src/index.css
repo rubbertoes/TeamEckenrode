@@ -848,3 +848,19 @@ button:hover {
   height: 40vh; /* Full viewport height */
   text-align: center; /* Optional: centers text within the flex item */
 }
+
+.alert-banner {
+  background-color: red;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.banner {
+  transition: margin-top 0.3s ease; /* Smooth transition for margin-top */
+}

@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../assets/Images/Logo.png'; // Adjust the path to your logo image
+import { useAlert } from './AlertContext.jsx';
 
 function Navbar() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const { alert } = useAlert();
+    const alertRef = useRef(null);
+    const bannerRef = useRef(null);
 
     const handleToggleClick = () => {
         setDropdownOpen(!dropdownOpen);
@@ -16,9 +20,26 @@ function Navbar() {
         setDropdownOpen(false);
     };
 
+    //Function gets alert message and the banner height so that the padding below
+    //the alert banner can be dynamically adjusted and the gym logo will initally 
+    //be visable above the alert banner
+    useEffect(() => {
+        if (alert.visible && alertRef.current && bannerRef.current) {
+            const alertHeight = alertRef.current.offsetHeight;
+            bannerRef.current.style.marginTop = `${alertHeight}px`;
+        } else if (bannerRef.current) {
+            bannerRef.current.style.marginTop = '0';
+        }
+    }, [alert]);
+
     return (
-        <header>
-            <div className="banner">
+        <header className={alert.visible ? 'with-alert' : ''}>
+            {alert.visible && (
+                <div className="alert-banner" ref={alertRef}>
+                    {alert.message}
+                </div>
+            )}
+            <div className="banner" ref={bannerRef}>
                 <div className="bannerbox">
                     <Link to="/">
                         <h1 className="bannertxt">
