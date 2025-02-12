@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAlert } from '../Components/AlertContext.jsx';
+import { useAlert } from './Components/AlertContext.jsx';
 
 const Admin = () => {
 

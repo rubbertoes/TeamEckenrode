@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../assets/Images/Logo.png'; // Adjust the path to your logo image
-import { useAlert } from './AlertContext.jsx';
-import AlertModal from './AlertModal.jsx';
+import { useAlert } from '../Admin/Components/AlertContext.jsx';
+import AlertModal from '../Admin/Components/AlertModal.jsx';
 
 function Navbar() {
     const [dropdownOpen, setDropdownOpen] = useState(false);

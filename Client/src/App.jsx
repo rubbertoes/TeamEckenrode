@@ -17,9 +17,9 @@ import RobertWatkinsPage from './Pages/SubPages/Watkins.jsx';
 import Footer from './Components/Footer.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
 import Admin from './Admin/Admin.jsx';
-import Login from './Components/Login.jsx';
-import { AuthProvider } from './Components/AuthContext.jsx';
-import { AlertProvider } from './Components/AlertContext.jsx';
+import Login from './Admin/Login.jsx';
+import { AuthProvider } from './Admin/AuthContext.jsx';
+import { AlertProvider } from './Admin/Components/AlertContext.jsx';
 
 function App() {
   return (
